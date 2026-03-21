@@ -1,3 +1,4 @@
+using System.Collections;
 using GastosResidenciais.API.Models;
 
 namespace GastosResidenciais.API.DTOs;
@@ -52,4 +53,42 @@ public record TransacaoResponse(
     string CategoriaDescricao,
     Guid PessoaId,
     string PessoaNome
+);
+
+// ========== Relatório DTOs ==========
+// Total financeiro de uma Pessoa: receitas, despesas e saldo
+public record RelatorioPessoaItem(
+    Guid PessoaId,
+    string PessoaNome,
+    int PessoaIdade,
+    decimal TotalReceitas,
+    decimal TotalDespesas,
+    decimal Saldo
+);
+
+// Relatório consolidado por pessoa, incluindo totais gerais no final
+public record RelatorioPessoaResponse(
+    IEnumerable<RelatorioPessoaItem> Pessoas,
+    decimal TotalGeralReceitas,
+    decimal TotalGeralDespesas,
+    decimal SaldoLiquido
+);
+
+// Total financeiro de uma Categoria: receitas, despesas e saldo
+public record RelatorioCategoriaItem(
+    Guid CategoriaId,
+    string CategoriaDescricao,
+    Finalidade Finalidade,
+    string FinalidadeDescricao,
+    decimal TotalReceitas,
+    decimal TotalDespesas,
+    decimal Saldo
+);
+
+// Relatório consolidado por categoria, incluindo totais gerais no final
+public record RelatorioCategoriaResponse(
+    IEnumerable<RelatorioCategoriaItem> Categorias,
+    decimal TotalGeralReceitas,
+    decimal TotalGeralDespesas,
+    decimal SaldoLiquido
 );
