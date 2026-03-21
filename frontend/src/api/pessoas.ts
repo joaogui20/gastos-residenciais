@@ -30,7 +30,7 @@ export const pessoasApi = {
      * Excluir uma pessoa do sistema
      * O backend apaga todas as transações associadas a essa pessoa, garantindo a integridade dos dados.
      */
-    deletar: async (id: number): Promise<void> => {
+    deletar: async (id: string): Promise<void> => {
         await apiClient.delete(`/pessoas/${id}`);
     },
 };
