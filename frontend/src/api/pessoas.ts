@@ -20,7 +20,7 @@ export const pessoasApi = {
     },
 
     /** Atualizar dados de uma pessoa existente */
-    atualizar: async (id: number, payload: PessoaRequest): Promise<Pessoa> => {
+    atualizar: async (id: string, payload: PessoaRequest): Promise<Pessoa> => {
         const { data } = await apiClient.put<Pessoa>(`/pessoas/${id}`, payload);
 
         return data;
