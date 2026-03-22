@@ -97,9 +97,13 @@ export default function TransacoesPage() {
   // ── Mudança de pessoa: bloqueia tipo se menor de idade ────────────────
   const handlePessoaChange = (pessoaId: string) => {
     const p = pessoas.find((x) => x.id === pessoaId);
-    const tipoForcado = p && p.idade < 18 ? 1 : form.tipo; // menor → força Despesa
-    setForm((prev) => ({ ...prev, pessoaId, tipo: tipoForcado }));
-    if (p && p.idade < 18) carregarCategoriasPorTipo(1);
+    const eMenor = p && p.idade < 18;
+    const novoTipo = eMenor ? 1 : form.tipo;
+    setForm((prev) => ({... prev, pessoaId, tipo: novoTipo}))
+    carregarCategoriasPorTipo(novoTipo);
+    //const tipoForcado = p && p.idade < 18 ? 1 : form.tipo; // menor → força Despesa
+    //setForm((prev) => ({ ...prev, pessoaId, tipo: tipoForcado }));
+    //if (p && p.idade < 18) carregarCategoriasPorTipo(1);
   };
 
   // ── Submissão ──────────────────────────────────────────────────────────

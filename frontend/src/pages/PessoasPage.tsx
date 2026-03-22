@@ -61,7 +61,7 @@ export default function PessoasPage() {
   // ── Submissão do formulário (criar ou editar) ──────────────────────────
   const handleSubmit = async () => {
     if (!form.nome.trim()) { setErro('O nome é obrigatório.'); return; }
-    if (form.idade < 0 || form.idade > 150) { setErro('Idade inválida.'); return; }
+    if (form.idade <= 0 || form.idade > 150) { setErro('Idade inválida.'); return; }
 
     setSalvando(true);
     setErro('');

@@ -89,7 +89,7 @@ public class TransacoesController : ControllerBase
         if (categoria is null) return NotFound(new { mensagem = "Categoria não encontrada." });
 
         // Primeira Regra: Menores de 18 anos só podem registrar transações do tipo Despesa
-        if (pessoa.Idade < 18 && request.Tipo == TipoTransacao.Despesa)
+        if (pessoa.Idade < 18 && request.Tipo == TipoTransacao.Receita)
         {
             return BadRequest( new { mensagem = $"{pessoa.Nome} é menor de idade e só pode registrar transações do tipo Despesa."});
         }
