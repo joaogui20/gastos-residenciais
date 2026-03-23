@@ -1,6 +1,6 @@
 # 🏠 Gastos Residenciais
 
-Sistema de controle de gastos residenciais com **WebAPI .NET 8** + **React + TypeScript**.
+Sistema de controle de gastos residenciais com **WebAPI .NET 10** + **React + TypeScript**.
 
 ---
 
@@ -53,7 +53,7 @@ gastos-residenciais/
 ## Como Executar
 
 ### Pré-requisitos
-- [.NET 8 SDK](https://dotnet.microsoft.com/download)
+- [.NET 10 SDK](https://dotnet.microsoft.com/download)
 - [Node.js 18+](https://nodejs.org)
 
 ### Back-end
